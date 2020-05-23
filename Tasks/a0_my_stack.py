@@ -3,7 +3,8 @@ My little Stack
 """
 from typing import Any
 
-# test temp
+# test temp!
+lis = []
 
 def push(elem: Any) -> None:
     """
@@ -12,7 +13,8 @@ def push(elem: Any) -> None:
     :param elem: element to be pushed
     :return: Nothing
     """
-    print(elem)
+    global lis
+    del lis[0]
     return None
 
 
@@ -42,4 +44,10 @@ def clear() -> None:
 
     :return: None
     """
+    global lis
+    lis = []
     return None
+
+if __name__ == '__main__':
+    push(5)
+    print(pop())
