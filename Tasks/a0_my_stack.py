@@ -3,6 +3,8 @@ My little Stack
 """
 from typing import Any
 
+# test temp!
+st:list = []
 
 def push(elem: Any) -> None:
     """
@@ -11,8 +13,8 @@ def push(elem: Any) -> None:
     :param elem: element to be pushed
     :return: Nothing
     """
-    print(elem)
-    return None
+    global st
+    st.insert(0, elem)
 
 
 def pop() -> Any:
@@ -21,7 +23,13 @@ def pop() -> Any:
 
     :return: popped element
     """
-    return None
+    global st
+    if len(st) >= 1:
+        res = st[0]
+        del st[0]
+        return res
+    else:
+        return None
 
 
 def peek(ind: int = 0) -> Any:
@@ -31,8 +39,11 @@ def peek(ind: int = 0) -> Any:
     :param ind: index of element (count from the top, 0 - top, 1 - first from top, etc.)
     :return: peeked element or None if no element in this place
     """
-    print(ind)
-    return None
+    global st
+    if ind < len(st):
+        return st[ind]
+    else:
+        return None
 
 
 def clear() -> None:
@@ -41,4 +52,11 @@ def clear() -> None:
 
     :return: None
     """
+    global st
+    st = []
     return None
+
+if __name__ == '__main__':
+    push(6)
+    clear()
+    print(pop())
